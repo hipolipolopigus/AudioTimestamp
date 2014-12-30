@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>AudioTimestamp</title>
+    
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
+
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="index.js"></script>
+    
+        <style>
+            #wrapper {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                margin: 5px;
+            }
+
+            #wrapper > audio, #form-wrapper, #form-wrapper > hr {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #form-wrapper {
+                margin-top: 60px;
+                width: 500px;
+            }
+
+            #form-wrapper > hr { width: 300px; }
+
+            input[readonly], #timestamp-go {
+                -moz-user-select: any !important;
+                -ms-user-select: any !important;
+                -webkit-user-select: any !important;
+                user-select: any !important;
+                cursor: default !important;
+            }
+
+            #timestamp-go { cursor: pointer !important; }
+        </style>
+    
+    </head>
+    <body>
+        <div id="wrapper">
+            <audio controls></audio>
+        </div>
+        <div id="form-wrapper">
+            <hr />
+            <form>
+                <div class="form-group">
+                    <label for="file">File To Play</label>
+                    <input type="url" class="form-control" id="file" placeholder="Enter File" />
+                </div>
+                <div class="form-group">
+                    <label for="timestamp">Timestamp</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="timestamp" min="0" value="0" />
+                        <div id="timestamp-go" class="input-group-addon">Go</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="output">Share</label>
+                    <div class="input-group">
+                        <input readonly type="text" class="form-control" id="output" />
+
+                        <span class="input-group-btn">
+                            <div class="btn btn-info" id="output-copy" data-clipboard-target='output'>Copy</div>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="lib/zeroclipboard/dist/ZeroClipboard.min.js"></script>
+        <script type="text/javascript">
+            var client = new ZeroClipboard($('#output-copy'));
+            client.on('copy', function(event) {
+                $('#output-copy').tooltip({ title: 'Copied', trigger:'manual' }).tooltip('show');
+            });
+        </script>
+    </body>
+</html>
