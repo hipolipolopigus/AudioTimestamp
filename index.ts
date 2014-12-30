@@ -12,6 +12,19 @@
         var query = playerQuery();
         player = <any>query[0];
 
+<<<<<<< HEAD
+        $('#timestamp-pause').click(() => {
+            if (player.paused) {
+                player.play();
+                $('#timestamp-pause > span').addClass('glyphicon-pause').removeClass('glyphicon-play');
+            } else {
+                player.pause();
+                $('#timestamp-pause > span').removeClass('glyphicon-pause').addClass('glyphicon-play');
+            }
+        });
+
+=======
+>>>>>>> origin/master
         query.on('timeupdate', () => {
             update(currentFile, timestamp = player.currentTime);
         });
@@ -31,7 +44,12 @@
         timestamp = 0;
         try {
             timestamp = parseFloat(getParameterByName('time'));
+<<<<<<< HEAD
+        $('#timestamp').attr('value', timestamp);
+        $('#timestamp-current').text('Current: ' + timestamp);
+=======
             $('#timestamp').attr('value', timestamp);
+>>>>>>> origin/master
         } catch (ex) {}
 
         if (currentFile) play(currentFile, timestamp);
@@ -39,6 +57,10 @@
 
     export function update(file: string, timestamp: number) {
         $('#output').attr('value', location['origin'] + location.pathname + '?file=' + file + '&time=' + timestamp);
+<<<<<<< HEAD
+        $('#timestamp-current').text('Current: ' + timestamp);
+=======
+>>>>>>> origin/master
     }
 
     export function play(file: string, timestamp: number = 0) {

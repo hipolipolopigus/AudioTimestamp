@@ -29,6 +29,11 @@
     <Content Include="lib\bootstrap\dist\js\npm.js" />
     <Content Include="lib\jquery\dist\jquery.js" />
     <Content Include="lib\jquery\dist\jquery.min.js" />
+    <Content Include="lib\zeroclipboard\dist\ZeroClipboard.Core.js" />
+    <Content Include="lib\zeroclipboard\dist\ZeroClipboard.Core.min.js" />
+    <Content Include="lib\zeroclipboard\dist\ZeroClipboard.js" />
+    <Content Include="lib\zeroclipboard\dist\ZeroClipboard.min.js" />
+    <Content Include="lib\zeroclipboard\dist\ZeroClipboard.swf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bower.json" />
@@ -123,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\zeroclipboard\dist\ZeroClipboard.Core.min.map" />
+    <Content Include="lib\zeroclipboard\dist\ZeroClipboard.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

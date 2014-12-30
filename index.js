@@ -19,6 +19,19 @@
         var query = audioTimestamp.playerQuery();
         audioTimestamp.player = query[0];
 
+<<<<<<< HEAD
+        $('#timestamp-pause').click(function () {
+            if (audioTimestamp.player.paused) {
+                audioTimestamp.player.play();
+                $('#timestamp-pause > span').addClass('glyphicon-pause').removeClass('glyphicon-play');
+            } else {
+                audioTimestamp.player.pause();
+                $('#timestamp-pause > span').removeClass('glyphicon-pause').addClass('glyphicon-play');
+            }
+        });
+
+=======
+>>>>>>> origin/master
         query.on('timeupdate', function () {
             update(audioTimestamp.currentFile, audioTimestamp.timestamp = audioTimestamp.player.currentTime);
         });
@@ -41,6 +54,10 @@
         try  {
             audioTimestamp.timestamp = parseFloat(getParameterByName('time'));
             $('#timestamp').attr('value', audioTimestamp.timestamp);
+<<<<<<< HEAD
+            $('#timestamp-current').text('Current: ' + audioTimestamp.timestamp);
+=======
+>>>>>>> origin/master
         } catch (ex) {
         }
 
@@ -50,6 +67,10 @@
 
     function update(file, timestamp) {
         $('#output').attr('value', location['origin'] + location.pathname + '?file=' + file + '&time=' + timestamp);
+<<<<<<< HEAD
+        $('#timestamp-current').text('Current: ' + timestamp);
+=======
+>>>>>>> origin/master
     }
     audioTimestamp.update = update;
 

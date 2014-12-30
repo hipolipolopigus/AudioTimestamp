@@ -12,13 +12,28 @@
         <script src="index.js"></script>
     
         <style>
-            #wrapper {
-                position: absolute;
-                left: 0;
-                top: 0;
-                right: 0;
-                margin: 5px;
+            #timestamp-pause {
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+                cursor: pointer;
+                border-left-width: 0;
             }
+
+            #timestamp-current {
+                min-width: 150px;
+                border-left-width: 0;
+                cursor: default;
+            }
+
+             #wrapper {
+                 position: absolute;
+                 left: 0;
+                 top: 0;
+                 right: 0;
+                 margin: 5px;
+             }
 
             #wrapper > audio, #form-wrapper, #form-wrapper > hr {
                 display: block;
@@ -28,7 +43,7 @@
 
             #form-wrapper {
                 margin-top: 60px;
-                width: 500px;
+                width: 600px;
             }
 
             #form-wrapper > hr { width: 300px; }
@@ -60,6 +75,8 @@
                     <label for="timestamp">Timestamp</label>
                     <div class="input-group">
                         <input type="number" class="form-control" id="timestamp" min="0" value="0" />
+                        <div id="timestamp-current" class="input-group-addon">0</div>
+                        <div id="timestamp-pause" class="input-group-addon"><span class="glyphicon glyphicon-pause"></span></div>
                         <div id="timestamp-go" class="input-group-addon">Go</div>
                     </div>
                 </div>
