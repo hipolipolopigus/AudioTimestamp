@@ -12,7 +12,6 @@
         var query = playerQuery();
         player = <any>query[0];
 
-<<<<<<< HEAD
         $('#timestamp-pause').click(() => {
             if (player.paused) {
                 player.play();
@@ -23,8 +22,6 @@
             }
         });
 
-=======
->>>>>>> origin/master
         query.on('timeupdate', () => {
             update(currentFile, timestamp = player.currentTime);
         });
@@ -43,24 +40,19 @@
         else console.log('No file supplied');
         timestamp = 0;
         try {
-            timestamp = parseFloat(getParameterByName('time'));
-<<<<<<< HEAD
-        $('#timestamp').attr('value', timestamp);
-        $('#timestamp-current').text('Current: ' + timestamp);
-=======
+        timestamp = parseFloat(getParameterByName('time'));
+            if (Number['isNan'](timestamp))timestamp = 0;
             $('#timestamp').attr('value', timestamp);
->>>>>>> origin/master
-        } catch (ex) {}
+            $('#timestamp-current').text('Current: ' + timestamp);
+                $('#timestamp').attr('value', timestamp);
+            } catch (ex) {}
 
         if (currentFile) play(currentFile, timestamp);
     });
 
     export function update(file: string, timestamp: number) {
         $('#output').attr('value', location['origin'] + location.pathname + '?file=' + file + '&time=' + timestamp);
-<<<<<<< HEAD
         $('#timestamp-current').text('Current: ' + timestamp);
-=======
->>>>>>> origin/master
     }
 
     export function play(file: string, timestamp: number = 0) {
